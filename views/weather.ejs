@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <section class="top-banner">
+    <div class="container">
+      <h1 class="heading">WeatherX</h1>
+      <form method="post" action="/weather">
+        <input type="text" placeholder="Search for a city" name="city" autofocus>
+        <button type="submit">SUBMIT</button>
+        <span class="msg"></span>
+      </form>
+    </div>
+  </section>
+  <section class="ajax-section">
+    <div class="container-fluid">
+      <div class="weather-info">
+        <div class="weather-box">
+          <% if (data !== null) { %>
+          <% const { main, name, sys, weather} = data %>
+          <h2 class="weather-name"><%= name %>
+            <span><sup class="country"><%= sys.country %></sup></span>
+          </h2>
+          <div class="weather-temp">
+            <h1 style="display: flex; justify-content: center; padding: 10px;" class="heading"><%= main.temp %> <sup
+                style="font-size: 30px;">°C</sup></h1>
+          </div>
+          <div class="weather-icon">
+            <% for (icon of weather) { %>
+            <img style="margin: auto" width="80" height="80"
+              src="http://openweathermap.org/img/w/<%= icon.icon %>.png" />
+            <% } %>
+            <p><%= icon.description.toUpperCase() %></p>
+          </div>
+          <% } %>
+
+        </div>
+
+      </div>
+      <div class="time-date">
+        <h2 class="date"><%= date() %></h2>
+        <h2 class="time"><%= time() %></h2>
+      </div>
+     
+
+
+    </div>
+  </section>
+  <footer class="page-footer">
+    <div class="container">
+      <small>Made with <span>❤</span> by <a href="https://twitter.com/Xemicolon" target="_blank">Xemicolon</a>
+      </small>
+    </div>
+  </footer>
+
+</body>
+
+</html>
