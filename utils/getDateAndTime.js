@@ -31,7 +31,7 @@ exports.getDate = () => {
   let year = myDate.getFullYear();
   let day = daysList[myDate.getDay()];
 
-  let today = `${date} ${month} ${year}, ${day}`;
+  let today = `${day}, ${date} ${month} ${year}`;
 
   return today;
 };
