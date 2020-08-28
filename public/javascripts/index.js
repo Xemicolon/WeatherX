@@ -1,5 +1,3 @@
-const long = document.querySelector(".lon");
-const lati = document.querySelector(".lat");
 const weatherContainer = document.querySelector(".weather-container");
 const loading = document.querySelector(".loading");
 const weatherName = document.querySelector(".name");
