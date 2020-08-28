@@ -3,27 +3,90 @@
 
 <head>
   <title>WeatherX</title>
+  <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
   <link rel='stylesheet' href='/stylesheets/style.css' />
+  <style>
+    #map {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .map {
+      height: 430px;
+      width: 80%;
+      margin: 0 auto;
+      margin-top: 30px;
+      position: relative;
+    }
+
+    .head {
+      text-align: center;
+      color: #fff;
+      margin: 20px auto;
+      width: 80%;
+    }
+  </style>
 </head>
 
 <body>
   <section class="top-banner">
-    <div class="container">
-      <h1 class="heading">Welcome to WeatherX</h1>
+    <div class="container weatherx">
+      <h1 class="heading x">WeatherX</h1>
       <form method="post" action="/weather">
-        <input type="text" placeholder="Search for a city" name="city" autofocus>
+        <input type="text" placeholder="Search for a city" name="city" required autofocus>
         <button type="submit">SUBMIT</button>
-        <span class="msg"></span>
       </form>
+    </div>
+  </section>
+  <h1 class="head">Click somewhere on the map to get weather details</h1>
+  <div class="map">
+    <div id="map"></div>
+  </div>
+
+  <section class="ajax-section">
+    <h3 class="loading hidden"></h3>
+    <div class="weather-container hidden">
+      <div class="weather-info">
+        <div class="weather-box">
+          <p class="info"></p>
+          <h2 class="name">
+
+          </h2>
+
+          <div class="weather-temp">
+            <h1 class="temp"></h1>
+          </div>
+
+          <div class="weather-icon">
+
+          </div>
+
+          <p class="weather-description"></p>
+
+          <div class="longlat">
+            <p class="longitude"></p>
+            <p class="latitude"></p>
+          </div>
+
+          <div class="time-date">
+            <h2 class="date"><%= date() %></h2>
+            <h2 class="time"><%= time() %></h2>
+          </div>
+
+        </div>
+      </div>
     </div>
   </section>
 
   <footer class="page-footer">
-      <small>Made with <span>❤</span> by <a href="https://twitter.com/Xemicolon" target="_blank">Xemicolon</a>
-      </small>
+    <small>Made with <span>❤</span> by <a href="https://twitter.com/Xemicolon" target="_blank">Xemicolon</a>
+    </small>
   </footer>
-
+  <script src="/javascripts/index.js"></script>
 </body>
-<script src="/javascripts/geoLocation.js"></script>
 
 </html>

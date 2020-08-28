@@ -1,3 +1,31 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WeatherX</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+
+    <section class="ajax-section">
+        <div class="container-fluid">
+            <div class="weather-info">
+                <div class="weather-box">
+                    <div class="error">
+                        <p><%= error %></p>
+                    </div>
+                    <div class="link"><a href="/">Go back</a></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <footer class="page-footer">
+        <small>Made with <span>❤</span> by <a href="https://twitter.com/Xemicolon" target="_blank">Xemicolon</a>
+        </small>
+    </footer>
+
+</body>
+
+</html>
